@@ -7,8 +7,8 @@ app.get('/tocaps',(req, res) => {
     let ip = req.socket.remoteAddress  
     const uppercase= req.query.s.toUpperCase()
    
-    console.log(req.query)
-    const html=` <!DOCTYPE html>
+    const html=`
+    <!DOCTYPE html>
     <html>
     <body>
     
@@ -16,7 +16,9 @@ app.get('/tocaps',(req, res) => {
     <p>${uppercase}</p>
     
     </body>
-    </html> `
+    </html>
+    `
+    
     return res.send(html)
 })
 
@@ -26,10 +28,9 @@ app.post('/tocaps',(req, res) => {
  
     let ip = req.socket.remoteAddress   
 
-    console.log(req.query)
     const uppercase= req.query.s.toUpperCase()
     const finalresult=uppercase + ip
-    console.log(`Example app listening on port ${port}`)
+    return res.send({ip,uppercase})
 })
 
 app.listen(port, () => {
