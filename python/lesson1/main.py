@@ -9,3 +9,5 @@ def search():
     args = request.args.to_dict()
     s = args.get('s')
     return s.upper()
+
+
